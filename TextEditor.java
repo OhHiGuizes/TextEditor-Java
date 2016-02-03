@@ -49,6 +49,8 @@ public class TextEditor extends JFrame {
 	textArea = new JTextArea();
 	textArea.setText(ReadFile("test.txt"));
 	textArea.setEditable(true);
+	textArea.setLineWrap(true);
+	textArea.setWrapStyleWord(true);
 	
 	JScrollPane scrollPane = new JScrollPane(textArea);
 	
