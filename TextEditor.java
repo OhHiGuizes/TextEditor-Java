@@ -9,15 +9,19 @@ import java.io.*;
 public class TextEditor extends JFrame implements ActionListener {
 
     protected JTextArea textArea;
-    protected String fileName = "text.txt";
+    protected String fileName = "norwalk-insert.txt";
     protected String line = null;
+
+    protected JMenuBar menuBar;
+    protected JMenu fileOption, exit;
+    protected JMenuItem fileSave, fileOpen;
 
     public String ReadFile(String file)
     {
-	   fileName = file;
-	   String fileData = "";
-	   try
-	   {
+        fileName = file;
+        String fileData = "";
+        try
+        {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -27,13 +31,13 @@ public class TextEditor extends JFrame implements ActionListener {
             }
             
             bufferedReader.close();     
-       }
-       catch(FileNotFoundException ex)
-	   {
+        }
+        catch(FileNotFoundException ex)
+        {
             System.out.println("Unable to open file '" + fileName + "'");
-       }
-       catch(IOException ex)
-	   {
+        }
+        catch(IOException ex)
+        {
             System.out.println("Error reading file '" + fileName + "'");
         }
         return fileData;
@@ -58,10 +62,12 @@ public class TextEditor extends JFrame implements ActionListener {
     public TextEditor()
     {
 	   super("Text Editor");
-	
-	   setLayout(new BorderLayout());
+       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       Container pane = getContentPane();
+	   pane.setLayout(new BorderLayout());
 
 	   textArea = new JTextArea();
+
 	   textArea.setText(ReadFile(fileName));
 	   textArea.setEditable(true);
 	   textArea.setLineWrap(true);
@@ -69,13 +75,36 @@ public class TextEditor extends JFrame implements ActionListener {
 	
 	   JScrollPane scrollPane = new JScrollPane(textArea);
 	
-	   add(scrollPane, BorderLayout.CENTER);
+	   pane.add(scrollPane, BorderLayout.CENTER);
 
-        JButton saveButton = new JButton("Save");
-        saveButton.setActionCommand("save");
-        saveButton.addActionListener(this);
+       menuBar = new JMenuBar();
 
-        add(saveButton, BorderLayout.LINE_END);
+       fileOption = new JMenu("File");
+       //fileOption.addMenuListener(new thisMenuListener());
+       menuBar.add(fileOption);
+
+       fileOpen = new JMenuItem("Open");
+       //fileOpen.addMenuListener(new thisMenuListener());
+       fileOption.add(fileOpen);
+
+       fileSave = new JMenuItem("Save");
+       //fileSave.addMenuListener(new thisMenuListener());
+       fileOption.add(fileSave);
+
+       exit = new JMenu("Exit");
+       //exit.addMenuListener(new thisMenuListener());
+       menuBar.add(exit);
+
+       setJMenuBar(menuBar);
+
+
+       /* 
+       JButton saveButton = new JButton("Save");
+       saveButton.setActionCommand("save");
+       saveButton.addActionListener(this);
+
+       add(saveButton, BorderLayout.LINE_END);
+        */
     }
 
     public void actionPerformed(ActionEvent e)
@@ -91,9 +120,8 @@ public class TextEditor extends JFrame implements ActionListener {
     public static void main(String[] args) 
     {
        TextEditor textEditor = new TextEditor();
-	   textEditor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   textEditor.setSize(600, 600);
-       textEditor.pack();
+       textEditor.setSize(600, 600);
+//       textEditor.pack();
 	   textEditor.setVisible(true);
     }
 }
