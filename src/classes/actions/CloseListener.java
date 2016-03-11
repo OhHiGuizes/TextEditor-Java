@@ -1,7 +1,4 @@
-// Goal here is to make all the Listeners seperate in these folders, to remove bulk from the main class.
-// But of course I suck.
-// package actions;
-
+package actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
