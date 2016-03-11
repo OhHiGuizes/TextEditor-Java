@@ -9,9 +9,11 @@ import java.io.PrintWriter;
 /**
  * Created by corey on 3/11/16.
  */
-public class WriteFile {
+public class WriteFile
+{
     private static String fileName;
-    public WriteFile(String name) {
+    public WriteFile(String name)
+    {
         fileName = name;
     }
 
@@ -25,7 +27,7 @@ public class WriteFile {
             printMe.write(text);
             printMe.close();
         }
-        catch(FileNotFoundException ex)
+        catch (FileNotFoundException ex)
         {
             System.out.println("Unable to open file '" + fileName + "'");
         }

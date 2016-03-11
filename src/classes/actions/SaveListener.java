@@ -8,7 +8,8 @@ import file_options.WriteFile;
 /**
  * Created by corey on 3/11/16.
  */
-public class SaveListener implements ActionListener {
+public class SaveListener implements ActionListener
+{
     WriteFile content;
     public SaveListener(WriteFile fileContent)
     {
@@ -16,7 +17,8 @@ public class SaveListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
         content.writeFile();
     }
 }

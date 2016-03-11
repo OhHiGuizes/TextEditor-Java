@@ -27,26 +27,21 @@
         <entry file="file://$PROJECT_DIR$/src/classes/main/TextEditor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="35" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="35" />
-              <folding>
-                <element signature="e#179#180#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-              </folding>
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WriteFile.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WriteFile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/file_options/WriteFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.6540362">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
+                <element signature="e#275#276#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,11 +51,11 @@
         <entry file="file://$PROJECT_DIR$/src/classes/file_options/ReadFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#273#274#0" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
+                <element signature="e#278#279#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,20 +65,21 @@
         <entry file="file://$PROJECT_DIR$/src/classes/main/GUIBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
               <folding>
-                <element signature="e#1618#1619#0" expanded="true" />
-                <element signature="e#1659#1660#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1616#1617#0" expanded="true" />
+                <element signature="e#1657#1658#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OpenListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/actions/OpenListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42009884">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,9 +91,10 @@
         <entry file="file://$PROJECT_DIR$/src/classes/actions/CloseListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,13 +104,12 @@
         <entry file="file://$PROJECT_DIR$/src/classes/actions/SaveListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#292#293#0" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#392#393#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
+                <element signature="e#431#432#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,15 +134,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/TextEditor/actions/CloseListener.java" />
         <option value="$PROJECT_DIR$/src/com/TextEditor/main/TextEditor.java" />
-        <option value="$PROJECT_DIR$/src/classes/actions/CloseListener.java" />
         <option value="$PROJECT_DIR$/src/classes/main/ReadFile.java" />
         <option value="$PROJECT_DIR$/src/classes/main/WriteFile.java" />
         <option value="$PROJECT_DIR$/src/classes/actions/SaveListener.java" />
-        <option value="$PROJECT_DIR$/src/classes/file_options/ReadFile.java" />
-        <option value="$PROJECT_DIR$/src/classes/file_options/WriteFile.java" />
-        <option value="$PROJECT_DIR$/src/classes/main/TextEditor.java" />
-        <option value="$PROJECT_DIR$/src/classes/main/GUIBuilder.java" />
+        <option value="$PROJECT_DIR$/src/classes/actions/CloseListener.java" />
         <option value="$PROJECT_DIR$/src/classes/actions/OpenListener.java" />
+        <option value="$PROJECT_DIR$/src/classes/main/GUIBuilder.java" />
+        <option value="$PROJECT_DIR$/src/classes/file_options/ReadFile.java" />
+        <option value="$PROJECT_DIR$/src/classes/main/TextEditor.java" />
+        <option value="$PROJECT_DIR$/src/classes/file_options/WriteFile.java" />
       </list>
     </option>
   </component>
@@ -200,6 +196,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TextEditor-Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TextEditor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -267,7 +281,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
@@ -733,12 +747,12 @@
       <workItem from="1457471026856" duration="1506000" />
       <workItem from="1457713206510" duration="2183000" />
       <workItem from="1457719003661" duration="1361000" />
-      <workItem from="1457720425531" duration="6401000" />
+      <workItem from="1457720425531" duration="6754000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11451000" />
+    <option name="totallyTimeSpent" value="11804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1049" extended-state="6" />
@@ -798,12 +812,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
-          <folding>
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -836,50 +845,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/file_options/WriteFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/actions/CloseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/actions/SaveListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/file_options/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -887,10 +860,45 @@
     <entry file="file://$PROJECT_DIR$/src/classes/main/GUIBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
           <folding>
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1657#1658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/actions/OpenListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/actions/CloseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/actions/SaveListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -898,22 +906,19 @@
     <entry file="file://$PROJECT_DIR$/src/classes/main/TextEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="35" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#179#180#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-          </folding>
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/actions/OpenListener.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/file_options/WriteFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42009884">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.6540362">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
           </folding>
         </state>
       </provider>

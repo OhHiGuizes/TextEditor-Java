@@ -56,8 +56,6 @@ public class GUIBuilder extends JFrame{
         fileOption.add(exit);
 
         setJMenuBar(menuBar);
-
-
     }
 
     public static String getText()

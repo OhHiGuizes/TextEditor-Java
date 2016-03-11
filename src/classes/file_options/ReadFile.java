@@ -8,13 +8,16 @@ import java.io.IOException;
 /**
  * Created by corey on 3/11/16.
  */
-public class ReadFile {
+public class ReadFile
+{
     private String fileName;
-    public ReadFile(String name){
+    public ReadFile(String name)
+    {
         fileName = name;
     }
 
-    public String readFile(){
+    public String readFile()
+    {
         String line = null;
         String fileData = "";
         try
