@@ -10,7 +10,7 @@ import java.awt.*;
  * Created by corey on 3/11/16.
  */
 public class GUIBuilder extends JFrame{
-    protected static JTextArea textArea;
+    public static JTextArea textArea;
 
     protected JMenuBar menuBar;
     protected JMenu fileOption;
@@ -24,6 +24,8 @@ public class GUIBuilder extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = getContentPane();
         pane.setLayout(new BorderLayout());
+
+        System.out.println(file);
 
         ReadFile fileContent = new ReadFile(file);
         WriteFile newFileContent = new WriteFile(file);

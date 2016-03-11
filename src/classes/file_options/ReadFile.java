@@ -1,9 +1,8 @@
 package file_options;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import main.TextEditor;
+
+import java.io.*;
 
 /**
  * Created by corey on 3/11/16.
@@ -18,19 +17,16 @@ public class ReadFile
 
     public String readFile()
     {
-        String line = null;
-        String fileData = "";
+        StringBuilder line = new StringBuilder();
         try
         {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            while((line = bufferedReader.readLine()) != null)
+            String bufferedLine = null;
+            BufferedReader buffer = new BufferedReader(new FileReader(new File(TextEditor.getFileName())));
+            while ((bufferedLine = buffer.readLine()) != null)
             {
-                fileData += line + "\n";
+                line.append(bufferedLine);
+                line.append("\n");
             }
-
-            bufferedReader.close();
         }
         catch(FileNotFoundException ex)
         {
@@ -40,6 +36,6 @@ public class ReadFile
         {
             System.out.println("Error reading file '" + fileName + "'");
         }
-        return fileData;
+        return line.toString();
     }
 }
