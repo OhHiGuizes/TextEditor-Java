@@ -2,6 +2,7 @@ package actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import file_options.WriteFile;
 
@@ -11,9 +12,9 @@ import file_options.WriteFile;
 public class SaveListener implements ActionListener
 {
     WriteFile content;
-    public SaveListener(WriteFile fileContent)
+    public SaveListener(File fileContent)
     {
-       content = fileContent;
+       content = new WriteFile(fileContent);
     }
 
     @Override

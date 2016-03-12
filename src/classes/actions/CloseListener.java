@@ -8,6 +8,6 @@ public class CloseListener implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        System.exit(0);
+       Runtime.getRuntime().exit(0);
     }
 }

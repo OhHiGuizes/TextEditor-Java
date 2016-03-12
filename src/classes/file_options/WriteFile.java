@@ -2,9 +2,7 @@ package file_options;
 
 import main.GUIBuilder;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Created by corey on 3/11/16.
@@ -12,9 +10,9 @@ import java.io.PrintWriter;
 public class WriteFile
 {
     private static String fileName;
-    public WriteFile(String name)
+    public WriteFile(File name)
     {
-        fileName = name;
+        fileName = name.toString();
     }
 
     public static void writeFile()
@@ -22,14 +20,17 @@ public class WriteFile
         String text = GUIBuilder.getText();
         try
         {
-            File file = new File(fileName);
-            PrintWriter printMe = new PrintWriter(file);
-            printMe.write(text);
-            printMe.close();
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+            GUIBuilder.textArea.write(bufferedWriter);
+            bufferedWriter.close();
         }
         catch (FileNotFoundException ex)
         {
             System.out.println("Unable to open file '" + fileName + "'");
+        }
+        catch (IOException ex)
+        {
+            System.out.println("Error writing file '" + fileName + "'");
         }
     }
 }
