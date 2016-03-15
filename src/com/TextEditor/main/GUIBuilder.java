@@ -1,38 +1,46 @@
-package main;
-
-import actions.*;
-import file_options.*;
+package com.TextEditor.main;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
+import java.awt.Container;
+import java.awt.BorderLayout;
+import java.io.*;
 
 /**
  * Created by corey on 3/11/16.
  */
 public class GUIBuilder extends JFrame{
-    public static JTextArea textArea;
-
+    protected JTextArea textArea;
+    protected File originalFile;
     protected JMenuBar menuBar;
     protected JMenu fileOption;
     protected JMenuItem fileSave, fileOpen, exit;
 
-    public static JFileChooser fc = new JFileChooser();
+    public JFileChooser fc = new JFileChooser();
 
-    public GUIBuilder(File file)
-    {
-        super(file.getName() + " - Text Editor");
+    public GUIBuilder(File file) {
+        super();
+        changeText();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = getContentPane();
         pane.setLayout(new BorderLayout());
 
-        ReadFile fileContent = new ReadFile(file);
-        WriteFile newFileContent = new WriteFile(file);
+        originalFile = file;
 
         textArea = new JTextArea();
         textArea.setEditable(true);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(originalFile));
+            textArea.read(reader, null);
+            reader.close();
+            textArea.requestFocus();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + originalFile + "'");
+        } catch (IOException ex) {
+            System.out.println("Error reading file '" + originalFile + "'");
+        }
 
         JScrollPane scrollPane = new JScrollPane(textArea);
 
@@ -44,24 +52,57 @@ public class GUIBuilder extends JFrame{
         menuBar.add(fileOption);
 
         fileOpen = new JMenuItem("Open");
-        fileOpen.addActionListener(new OpenListener());
+        fileOpen.addActionListener(e -> {
+
+            if (fc.showOpenDialog(null) == fc.APPROVE_OPTION)
+            {
+                File newFile = fc.getSelectedFile();
+                originalFile = newFile;
+                ReadAndWriteConfig.writeConfig(newFile);
+                try {
+                    BufferedReader buffer = new BufferedReader(new FileReader(originalFile));
+                    textArea.read(buffer, null);
+                    buffer.close();
+                    textArea.requestFocus();
+                } catch (FileNotFoundException ex) {
+                    System.out.println("Unable to open file '" + originalFile + "'");
+                } catch (IOException ex) {
+                    System.out.println("Error reading file '" + originalFile + "'");
+                }
+                changeText();
+            }
+        });
         fileOption.add(fileOpen);
 
         fileSave = new JMenuItem("Save");
-        fileSave.addActionListener(new SaveListener(file));
+        fileSave.addActionListener(e -> {
+            try
+            {
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(originalFile));
+                textArea.write(bufferedWriter);
+                bufferedWriter.close();
+
+            }
+            catch (FileNotFoundException ex)
+            {
+                System.out.println("Unable to open file '" + originalFile + "'");
+            }
+            catch (IOException ex)
+            {
+                System.out.println("Error writing file '" + originalFile + "'");
+            }
+        });
         fileOption.add(fileSave);
 
         exit = new JMenuItem("Exit");
-        exit.addActionListener(new CloseListener());
+        exit.addActionListener(e -> System.exit(0));
         fileOption.add(exit);
 
         setJMenuBar(menuBar);
-        fileContent.readFile();
     }
 
-    public static String getText()
-    {
-        return textArea.getText();
+    public void changeText() {
+        setTitle(ReadAndWriteConfig.getFileName() + " - Text Editor");
     }
 
     public static void CreateAndShowGui(File fileName)
