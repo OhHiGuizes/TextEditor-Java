@@ -28,8 +28,7 @@ public class GUIBuilder extends JFrame{
 
         textArea = new JTextArea();
         textArea.setEditable(true);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
+        textArea.setLineWrap(false);
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(originalFile));
