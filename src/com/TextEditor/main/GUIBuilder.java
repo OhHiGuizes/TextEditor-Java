@@ -13,9 +13,9 @@ public class GUIBuilder extends JFrame{
     protected File originalFile;
     protected JMenuBar menuBar;
     protected JMenu fileOption;
-    protected JMenuItem fileSave, fileOpen, exit;
+    protected JMenuItem fileSave, fileOpen, exit, fileNew;
 
-    public JFileChooser fc = new JFileChooser();
+    public JFileChooser fc;
 
     public GUIBuilder(File file) {
         super();
@@ -25,6 +25,8 @@ public class GUIBuilder extends JFrame{
         pane.setLayout(new BorderLayout());
 
         originalFile = file;
+
+        fc = new JFileChooser(originalFile);
 
         textArea = new JTextArea();
         textArea.setEditable(true);
@@ -50,10 +52,29 @@ public class GUIBuilder extends JFrame{
         fileOption = new JMenu("File");
         menuBar.add(fileOption);
 
+        fileNew = new JMenuItem("New File");
+        fileNew.addActionListener(e1 -> {
+            String name = JOptionPane.showInputDialog(this, "Name of new file: ", null);
+            try {
+                File f = new File(originalFile.getParent() + File.separator + name);
+                f.createNewFile();
+                originalFile = f;
+                BufferedReader reader = new BufferedReader(new FileReader(originalFile));
+                textArea.read(reader, null);
+                reader.close();
+                textArea.requestFocus();
+                ReadAndWriteConfig.writeConfig(originalFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            changeText();
+        });
+        fileOption.add(fileNew);
+
         fileOpen = new JMenuItem("Open");
         fileOpen.addActionListener(e -> {
 
-            if (fc.showOpenDialog(null) == fc.APPROVE_OPTION)
+            if (fc.showOpenDialog(GUIBuilder.this) == fc.APPROVE_OPTION)
             {
                 File newFile = fc.getSelectedFile();
                 originalFile = newFile;
