@@ -1,130 +1,130 @@
 package com.TextEditor.main;
 
 import javax.swing.*;
-import java.awt.Container;
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by corey on 3/11/16.
  */
 public class GUIBuilder extends JFrame{
-    protected JTextArea textArea;
-    protected File originalFile;
-    protected JMenuBar menuBar;
-    protected JMenu fileOption;
-    protected JMenuItem fileSave, fileOpen, exit, fileNew;
-
-    public JFileChooser fc;
-
+    private File originalFile;
+    private List fileList;
     public GUIBuilder(File file) {
-        super();
-        changeText();
+        super("Text Editor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container pane = getContentPane();
-        pane.setLayout(new BorderLayout());
 
         originalFile = file;
+        JFileChooser fc = new JFileChooser(originalFile);
 
-        fc = new JFileChooser(originalFile);
+        fileList = new List();
+        fileList.add(originalFile.getAbsolutePath());
 
-        textArea = new JTextArea();
-        textArea.setEditable(true);
-        textArea.setLineWrap(false);
+        JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
+        add(tabbedPane);
+        System.out.println(tabbedPane.getTabCount());
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(originalFile));
-            textArea.read(reader, null);
-            reader.close();
-            textArea.requestFocus();
-        } catch (FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + originalFile + "'");
-        } catch (IOException ex) {
-            System.out.println("Error reading file '" + originalFile + "'");
-        }
+        JMenuBar menuBar = new JMenuBar();
 
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        JMenu fileOption = new JMenu("File");
 
-        pane.add(scrollPane, BorderLayout.CENTER);
-
-        menuBar = new JMenuBar();
-
-        fileOption = new JMenu("File");
         menuBar.add(fileOption);
 
-        fileNew = new JMenuItem("New File");
+        JMenuItem fileNew = new JMenuItem("New File");
         fileNew.addActionListener(e1 -> {
             String name = JOptionPane.showInputDialog(this, "Name of new file: ", null);
+            originalFile = new File(originalFile.getParent() + File.separator + name);
             try {
-                File f = new File(originalFile.getParent() + File.separator + name);
-                f.createNewFile();
-                originalFile = f;
-                BufferedReader reader = new BufferedReader(new FileReader(originalFile));
-                textArea.read(reader, null);
-                reader.close();
-                textArea.requestFocus();
-                ReadAndWriteConfig.writeConfig(originalFile);
+                originalFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            changeText();
+            tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
+            fileList.add(originalFile.getAbsolutePath());
+            tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
         });
         fileOption.add(fileNew);
 
-        fileOpen = new JMenuItem("Open");
+        JMenuItem fileOpen = new JMenuItem("Open");
         fileOpen.addActionListener(e -> {
-
             if (fc.showOpenDialog(GUIBuilder.this) == fc.APPROVE_OPTION)
             {
-                File newFile = fc.getSelectedFile();
-                originalFile = newFile;
-                ReadAndWriteConfig.writeConfig(newFile);
-                try {
-                    BufferedReader buffer = new BufferedReader(new FileReader(originalFile));
-                    textArea.read(buffer, null);
-                    buffer.close();
-                    textArea.requestFocus();
-                } catch (FileNotFoundException ex) {
-                    System.out.println("Unable to open file '" + originalFile + "'");
-                } catch (IOException ex) {
-                    System.out.println("Error reading file '" + originalFile + "'");
-                }
-                changeText();
+                originalFile = fc.getSelectedFile();
+                ReadAndWriteConfig.writeConfig(originalFile);
+                tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
+                fileList.add(originalFile.getAbsolutePath());
+                tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
             }
         });
         fileOption.add(fileOpen);
 
-        fileSave = new JMenuItem("Save");
+        JMenuItem fileSave = new JMenuItem("Save");
         fileSave.addActionListener(e -> {
+            NewTab panel = (NewTab)tabbedPane.getSelectedComponent();
+            JTextArea textArea = panel.getTextArea();
+            int selector = tabbedPane.getSelectedIndex();
+            File f = new File(fileList.getItem(selector));
+            System.out.println("Saving " + f.getAbsolutePath() + "...");
             try
             {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(originalFile));
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f));
                 textArea.write(bufferedWriter);
                 bufferedWriter.close();
-
             }
             catch (FileNotFoundException ex)
             {
-                System.out.println("Unable to open file '" + originalFile + "'");
+                System.out.println("Unable to open file '" + f + "'");
             }
             catch (IOException ex)
             {
-                System.out.println("Error writing file '" + originalFile + "'");
+                System.out.println("Error writing file '" + f + "'");
             }
         });
         fileOption.add(fileSave);
 
-        exit = new JMenuItem("Exit");
+        JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(e -> System.exit(0));
         fileOption.add(exit);
 
         setJMenuBar(menuBar);
     }
+    class NewTab extends JComponent {
+        private JPanel jp;
+        private JTextArea text;
+        private File file;
 
-    public void changeText() {
-        setTitle(ReadAndWriteConfig.getFileName() + " - Text Editor");
+        public NewTab(File fileName) {
+            jp = new JPanel(false);
+            text = new JTextArea();
+            file = fileName;
+            text.setEditable(true);
+            text.setLineWrap(false);
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(fileName));
+                text.read(reader, null);
+                reader.close();
+                text.requestFocus();
+            } catch(FileNotFoundException ex) {
+                System.out.println("Unable to open file '" + fileName + "'");
+            } catch(IOException ex) {
+                System.out.println("Error reading file '" + fileName + "'");
+            }
+            this.setLayout(new BorderLayout());
+            JScrollPane scroll = new JScrollPane(text);
+            add(scroll, BorderLayout.CENTER);
+        }
+
+        public File getFile() {
+            return file;
+        }
+
+        public JTextArea getTextArea() {
+            return text;
+        }
+
     }
-
     public static void CreateAndShowGui(File fileName)
     {
         GUIBuilder textEditor = new GUIBuilder(fileName);
