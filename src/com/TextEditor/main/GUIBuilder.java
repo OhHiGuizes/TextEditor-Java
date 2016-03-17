@@ -3,14 +3,13 @@ package com.TextEditor.main;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
 
 /**
  * Created by corey on 3/11/16.
  */
 public class GUIBuilder extends JFrame{
     private File originalFile;
-    private List fileList;
+    private JSplitPane splitPane;
     public GUIBuilder(File file) {
         super("Text Editor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,13 +17,12 @@ public class GUIBuilder extends JFrame{
         originalFile = file;
         JFileChooser fc = new JFileChooser(originalFile);
 
-        fileList = new List();
-        fileList.add(originalFile.getAbsolutePath());
-
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
-        add(tabbedPane);
-        System.out.println(tabbedPane.getTabCount());
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+        splitPane.setLeftComponent(new JLabel("<html><p>Tree View Coming Soon...</p></html>"));
+        splitPane.setRightComponent(tabbedPane);
+        add(splitPane);
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -42,7 +40,6 @@ public class GUIBuilder extends JFrame{
                 e.printStackTrace();
             }
             tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
-            fileList.add(originalFile.getAbsolutePath());
             tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
         });
         fileOption.add(fileNew);
@@ -54,7 +51,6 @@ public class GUIBuilder extends JFrame{
                 originalFile = fc.getSelectedFile();
                 ReadAndWriteConfig.writeConfig(originalFile);
                 tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
-                fileList.add(originalFile.getAbsolutePath());
                 tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
             }
         });
@@ -64,8 +60,7 @@ public class GUIBuilder extends JFrame{
         fileSave.addActionListener(e -> {
             NewTab panel = (NewTab)tabbedPane.getSelectedComponent();
             JTextArea textArea = panel.getTextArea();
-            int selector = tabbedPane.getSelectedIndex();
-            File f = new File(fileList.getItem(selector));
+            File f = panel.getFile();
             System.out.println("Saving " + f.getAbsolutePath() + "...");
             try
             {
@@ -91,12 +86,10 @@ public class GUIBuilder extends JFrame{
         setJMenuBar(menuBar);
     }
     class NewTab extends JComponent {
-        private JPanel jp;
         private JTextArea text;
         private File file;
 
         public NewTab(File fileName) {
-            jp = new JPanel(false);
             text = new JTextArea();
             file = fileName;
             text.setEditable(true);
