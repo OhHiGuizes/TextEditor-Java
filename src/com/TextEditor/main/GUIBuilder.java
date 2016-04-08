@@ -1,6 +1,8 @@
 package com.TextEditor.main;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
 import java.awt.*;
 import java.io.*;
 
@@ -13,14 +15,20 @@ public class GUIBuilder extends JFrame{
     public GUIBuilder(File file) {
         super("Text Editor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
         originalFile = file;
         JFileChooser fc = new JFileChooser(originalFile);
+
+        File top = new File(System.getProperty("user.home") + "/git/TextEditor-Java/");
 
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab(originalFile.getName(), new NewTab(originalFile));
         splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-        splitPane.setLeftComponent(new JLabel("<html><p>Tree View Coming Soon...</p></html>"));
+		
+        FileTree tree = new FileTree(top);
+		JScrollPane treeScroll = new JScrollPane(tree);
+        splitPane.setLeftComponent(treeScroll);
+		
         splitPane.setRightComponent(tabbedPane);
         add(splitPane);
 
@@ -85,6 +93,7 @@ public class GUIBuilder extends JFrame{
 
         setJMenuBar(menuBar);
     }
+
     class NewTab extends JComponent {
         private JTextArea text;
         private File file;
@@ -118,6 +127,22 @@ public class GUIBuilder extends JFrame{
         }
 
     }
+
+    static class FileTree extends JTree {
+        public FileTree(File path){
+            super(scan(path));
+        }
+        private static MutableTreeNode scan(File node){
+            DefaultMutableTreeNode ret = new DefaultMutableTreeNode(node.getName());
+            if (node.isDirectory()){
+                for (File child : node.listFiles()){
+                    ret.add(scan(child));
+                }
+            }
+            return ret;
+        }
+    }
+
     public static void CreateAndShowGui(File fileName)
     {
         GUIBuilder textEditor = new GUIBuilder(fileName);
