@@ -1,5 +1,4 @@
-package com.TextEditor.main;
-
+// Maybe I should get rid of this
 import java.io.File;
 
 public class TextEditor {

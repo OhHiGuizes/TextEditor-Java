@@ -1,4 +1,4 @@
-package com.TextEditor.main;
+
 // "/home/corey/git/TextEditor-Java/src/com/TextEditor/test_files/text.txt"
 //import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
@@ -9,7 +9,7 @@ import java.util.Properties;
  * Created by corey on 3/14/16.
  */
 public class ReadAndWriteConfig {
-    static File configFile = new File(System.getProperty("user.home") + "/git/TextEditor-Java/src/com/TextEditor/.config/recent-file.conf");
+    static File configFile = new File(System.getProperty("user.dir") + "/.config/recent-file.conf");
     static File openedFile;
     static Properties recentFiles = new Properties();
 
@@ -21,6 +21,7 @@ public class ReadAndWriteConfig {
         }
 
         if (recentFiles.getProperty("file") == null) {
+        	//This is terrible, gotta find something better
             openedFile = new File(System.getProperty("user.home") + "/git/TextEditor-Java/src/com/TextEditor/test_files/text.txt");
             recentFiles.setProperty("file", openedFile.getAbsolutePath());
         }
