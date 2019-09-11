@@ -38,6 +38,9 @@ import java.io.FileReader;
 /**
  * Created by corey on 3/11/16.
  */
+
+// TODO: Fix scaling
+
 public class GUIBuilder extends JFrame implements ActionListener{
     
 	private File originalFile;
@@ -217,7 +220,7 @@ public class GUIBuilder extends JFrame implements ActionListener{
             {
                 originalFile = fc.getSelectedFile();
                 ReadAndWriteConfig.writeConfig(originalFile);
-                tabbedPane.addTab(originalFile.getName(), new TextWindow(originalFile));
+                addTab(originalFile);
                 tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
             }
 		}
