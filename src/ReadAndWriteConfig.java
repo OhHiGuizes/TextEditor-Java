@@ -1,13 +1,11 @@
-
-// "/home/corey/git/TextEditor-Java/src/com/TextEditor/test_files/text.txt"
-//import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.io.*;
 import java.util.Properties;
 
 /**
  * Created by corey on 3/14/16.
  */
+
+// TODO: Project Awareness
 
 public class ReadAndWriteConfig {
     static File configFile = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + "recent-file.conf");

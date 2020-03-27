@@ -224,6 +224,7 @@ public class GUIBuilder extends JFrame implements ActionListener{
                 tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
             }
 		}
+		// TODO: Include new file location
 		if (arg0.getSource() == fileSave){
             TextWindow panel = (TextWindow)tabbedPane.getSelectedComponent();
             JTextArea textArea = panel.getTextArea();
