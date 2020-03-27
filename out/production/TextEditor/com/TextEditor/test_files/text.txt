@@ -1,7 +1,0 @@
-Hello World
-
-I love you
-
-Dogs.
-
-I guess this works now.
