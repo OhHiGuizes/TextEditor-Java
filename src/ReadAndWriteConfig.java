@@ -8,24 +8,25 @@ import java.util.Properties;
 /**
  * Created by corey on 3/14/16.
  */
+
 public class ReadAndWriteConfig {
-    static File configFile = new File(System.getProperty("user.dir") + "/.config/recent-file.conf");
+    static File configFile = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + "recent-file.conf");
     static File openedFile;
     static Properties recentFiles = new Properties();
 
     public static File readConfig() {
         try {
+            if (!configFile.exists()){	
+		new File(System.getProperty("user.home") + File.separator + ".config").mkdirs();
+		configFile.createNewFile();
+                recentFiles.setProperty("file", System.getProperty("user.home") + File.separator + ".config" +File.separator  + "new.txt");
+                recentFiles.store(new FileOutputStream(configFile), null);
+                new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + "new.txt").createNewFile();
+            }
             recentFiles.load(new FileInputStream(configFile));
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        if (recentFiles.getProperty("file") == null) {
-        	//This is terrible, gotta find something better
-            openedFile = new File(System.getProperty("user.home") + "/git/TextEditor-Java/src/com/TextEditor/test_files/text.txt");
-            recentFiles.setProperty("file", openedFile.getAbsolutePath());
-        }
-
+        } 
         return new File(recentFiles.getProperty("file"));
     }
 
