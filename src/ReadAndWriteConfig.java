@@ -5,8 +5,11 @@ import java.util.Properties;
  * Created by corey on 3/14/16.
  */
 
+<<<<<<< HEAD
 // TODO: Project Awareness
 
+=======
+>>>>>>> 99c6fa98437464dbf8cd8133c54ccbed493c1cd8
 public class ReadAndWriteConfig {
     static File configFile = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + "recent-file.conf");
     static File openedFile;
